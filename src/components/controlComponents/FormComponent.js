@@ -52,6 +52,20 @@ class FormComponent extends Component {
   handleAgeRangeSelect(e) {
     this.setState({ ownerAgeRangeSelection: e.target.value });
   }
+
+  handleBunnySelection(e) {
+
+    const newSelection = e.target.value;
+    let newSelectionArray;
+
+    if(this.state.selectedPets.indexOf(newSelection) > -1) {
+      newSelectionArray = this.state.selectedPets.filter(s => s !== newSelection)
+    } else {
+      newSelectionArray = [...this.state.selectedPets, newSelection];
+    }
+
+      this.setState({ selectedPets: newSelectionArray });
+  }
 //-----------------------------------------------
   render() {
     return(
