@@ -30,7 +30,7 @@ class FormComponent extends Component {
           ownerAgeRangeSelection: data.ownerAgeRangeSelection,
           siblingOptions: data.siblingOptions,
           siblingSelection: data.siblingSelection,
-          currentPetCount: data.currentPetCount,
+          currentBunnyCount: data.currentBunnyCount,
           description: data.description
         });
     });
@@ -40,10 +40,17 @@ class FormComponent extends Component {
     // submit logic goes here
   }
 
-  handleClearForm() {
-    // clear form logic goes here
+  handleClearForm(e) {
+    e.preventDefault();
+    this.setState({
+      ownerName: '',
+      selectedPets: [],
+      ownerAgeRangeSelection: '',
+      siblingSelection: [],
+      currentBunnyCount: 0,
+      description: ''
+    });
   }
-
 //-----------------------------------------------
   //component callbacks to state changes
   handleFullNameChange(e) {
@@ -54,7 +61,6 @@ class FormComponent extends Component {
   }
 
   handleBunnySelection(e) {
-
     const newSelection = e.target.value;
     let newSelectionArray;
 
